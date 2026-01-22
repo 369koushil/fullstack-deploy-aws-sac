@@ -1,68 +1,83 @@
+# Paytm App – AWS Deployed Project
 
-# Paytm App
+## Overview
+This is a full stack Paytm-like application deployed on AWS, created to demonstrate backend and DevOps skills.
 
-## Description
+- Frontend built with React and served using Amazon S3 and CloudFront
+- Backend built with Node.js and Express, deployed on Amazon ECS
+- Docker images stored in Amazon ECR
+- ECS uses EC2 instances
+- MongoDB used as the database
+- AWS CLI used for deployment
 
-This is a Paytm-like application that allows users to authenticate, transfer money to other users, and apply transaction concepts in a relational database management system (RDBMS) for handling money transfers. The app ensures data integrity by rolling back transactions if they fail, preventing any money from being lost or transferred incorrectly.
-
-### Features:
-- **User Authentication**: Users can register, log in, and authenticate using JWT (JSON Web Token).
-- **Money Transfer**: Users can transfer money to another user. Transactions are handled with rollback mechanisms in case of failure, ensuring safety and consistency.
-- **Transaction Handling**: If a transaction fails, it is aborted and the changes are rolled back to maintain the original state.
+---
 
 ## Tech Stack
 
-- **Frontend**:
-  - React
-  - Tailwind CSS
-- **Backend**:
-  - Node.js
-  - Express
-  - MongoDB
-- **Libraries**:
-  - JWT (for user authentication)
-  - Zod (for input validation)
-  - React-Router-Dom (for frontend routing)
+### Frontend
+- React
+- Tailwind CSS
 
-## Installation and Running Guide
+### Backend
+- Node.js
+- Express
+- MongoDB
 
-Follow these steps to install and run the Paytm App locally.
+### AWS & DevOps
+- Docker
+- Amazon EC2
+- Amazon ECS
+- Amazon ECR
+- Amazon S3
+- Amazon CloudFront
+- AWS CLI
 
-### Step 1: Clone the Repository
+---
 
-Start by cloning the repository to your local machine:
+## Deployment Summary
 
+### Backend
+1. Dockerized Node.js backend
+2. Image pushed to Amazon ECR using AWS CLI
+3. ECS cluster created using EC2 launch type
+4. ECS service runs backend containers
+
+### Frontend
+1. React app built using `npm run build`
+2. Build files uploaded to Amazon S3
+3. CloudFront used as CDN to serve frontend
+
+---
+
+## Local Setup
+
+### Clone Repository
 ```bash
 git clone https://github.com/your-username/paytm-app.git
 cd paytm-app
 ```
 
-### Step 2: navigation and installation of dependencies
+### Install Dependencies
 
-1. Navigate to the backend folder and frontend
+Backend:
+```bash
+cd backend
+npm install
+node index.js
+```
 
-   ```bash
-   cd backend
-   ```
-   ```bash
-   cd frontend
-   ```
+Frontend:
+```bash
+cd frontend
+npm install
+npm start
+```
 
-2. Install  Dependencies
+---
 
-  run this command in both terminals
+## Environment Variables
 
-   ```bash
-   npm install
-   ```
-   
-
-### Step 3: Configure MongoDB
-
-- If you're using **MongoDB Atlas**, get your connection string from your MongoDB Atlas dashboard.
-- If you're running **MongoDB locally**, ensure MongoDB is running on the default port (`27017`) or use a custom URI if required.
-
-Once you have your MongoDB URI, create a `.env` file in the `backend` directory and add the following content:
+Create a `.env` file in backend folder:
 
 ```env
 MONGODB_URI=your_mongodb_connection_string
@@ -70,33 +85,12 @@ JWT_SECRET=your_jwt_secret_key
 PORT=5000
 ```
 
-- Replace `your_mongodb_connection_string` with the actual MongoDB connection string.
-- Set a secure `JWT_SECRET` for signing JWT tokens.
+---
 
-
-
-### Step 4: run locally
- 
-**backend** 
-```bash 
-node index.js
-```
-
-**frontend**
-```bash
-npm start
-```
-
-## Preveiw
-
-![Alt text](screenshorts/startpage.png)
-![Alt text](screenshorts/signup.png)
-![Alt text](screenshorts/send.png)
-![Alt text](screenshorts/dashboard.png)
-![Alt text](screenshorts/search.png)
-
-
-
-
-
-
+## Use Case
+This project is suitable for demonstrating:
+- Docker and containerization
+- AWS ECS and ECR workflow
+- EC2-based container deployment
+- S3 and CloudFront static hosting
+- Basic DevOps and cloud architecture
