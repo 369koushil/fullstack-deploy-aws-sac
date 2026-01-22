@@ -1,4 +1,4 @@
-# Paytm App – AWS Deployed Project
+# Full stack app - AWS Deployed Project
 
 ## Overview
 This is a full stack Paytm-like application deployed on AWS, created to demonstrate backend and DevOps skills.
